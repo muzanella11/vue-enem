@@ -1,8 +1,10 @@
-const Dashboard = (resolve) => {
-  require.ensure(['@/pages/Dashboard'], () => {
-    resolve(require('@/pages/Dashboard'))
-  })
-}
+import dashboard from './dashboard'
+import vuetifyex from './vuetifyex'
+// const Dashboard = (resolve) => {
+//   require.ensure(['@/pages/Dashboard'], () => {
+//     resolve(require('@/pages/Dashboard'))
+//   })
+// }
 
 const Hello = (resolve) => {
   require.ensure(['@/components/Hello'], () => {
@@ -16,17 +18,18 @@ const PageNotFound = (resolve) => {
   })
 }
 
-const dashboard = {
-  path: '/',
-  name: 'dashboard',
-  component: Dashboard,
-  meta: {
-    breadcrumb: [{
-      to: {name: 'dashboard'},
-      label: 'Dashboard'
-    }]
-  }
-}
+// const dashboard = {
+//   path: '/',
+//   name: 'dashboard',
+//   component: Dashboard,
+//   meta: {
+//     layout: true,
+//     breadcrumb: [{
+//       to: {name: 'dashboard'},
+//       label: 'Dashboard'
+//     }]
+//   }
+// }
 
 const hello = {
   path: '/hello',
@@ -41,7 +44,8 @@ const hello = {
 }
 
 export default [
-  dashboard,
+  ...dashboard,
+  ...vuetifyex,
   hello,
   {
     name: 'pageNotFound',

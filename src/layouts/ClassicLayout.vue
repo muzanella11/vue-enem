@@ -1,30 +1,37 @@
 <template>
-  <div id="app">
-    <app-layout appear v-if="haveLayout"></app-layout>
+  <div class="container">
+    <!-- Begin Header -->
+    <header>
+      header
+    </header>
+    <!-- End Header -->
 
-    <template appear v-else>
+    <!-- Begin Main Content -->
+    <main>
       <router-view></router-view>
-    </template>
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Begin Footer -->
+    <footer>
+      footer
+    </footer>
+    <!-- End Footer -->
   </div>
 </template>
 
 <script>
-import ClassicLayout from '@/layouts/ClassicLayout'
 export default {
-  name: 'app',
+  name: 'classic-layout',
   data () {
     return {
       //
     }
   },
 
-  components: {
-    'app-layout': ClassicLayout
-  },
-
   computed: {
     haveLayout () {
-      return this.$route.meta.layout || false
+      return this.$route.meta.layout
     }
   }
 }
